@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utils/my_tile.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class footer extends StatefulWidget {
   const footer({super.key});
@@ -11,6 +12,58 @@ class footer extends StatefulWidget {
 }
 
 class _footerState extends State<footer> {
+  late int likeCount; // Initial like count, fetch from database if needed
+  bool liked = false;
+
+  // Supabase configuration
+  final supabase = SupabaseClient(
+    'https://syfrrvdtmschpylufahr.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5ZnJydmR0bXNjaHB5bHVmYWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDEzNjk0MzYsImV4cCI6MjAxNjk0NTQzNn0.wsD8djMCBlgbImZoaaEtawAO2rKaLfAGVZPeg-DXfNA',
+  );
+
+  // Function to update likes count in Supabase
+  Future<void> updateLikes() async {
+    if (!liked) {
+      final response = await supabase
+          .from('like_counter') // Replace with your table name
+          .update({'Likes': likeCount + 1}) // Increment the likes count
+          .eq('id', 1) // Replace 'id' with your item identifier
+          .execute();
+      setState(() {
+        likeCount++;
+        liked = true;
+      });
+    } else {
+      final response = await supabase
+          .from('like_counter') // Replace with your table name
+          .update({'Likes': likeCount - 1}) // Increment the likes count
+          .eq('id', 1) // Replace 'id' with your item identifier
+          .execute();
+      setState(() {
+        likeCount--;
+        liked = false;
+      });
+    }
+  }
+
+  Future<void> fetchLikes() async {
+    final response = await supabase
+        .from('like_counter') // Replace with your table name
+        .select('Likes') // Specify the column to fetch
+        .eq('id', 1) // Replace 'id' with your item identifier
+        .execute();
+
+    setState(() {
+      likeCount = response.data![0]['Likes'] as int;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchLikes(); // Fetch likes count when the widget initializes
+  }
+
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
@@ -59,16 +112,41 @@ class _footerState extends State<footer> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Text(
+                    "Drop a Heart",
+                    style: TextStyle(color: Colors.purple, fontSize: 10),
+                  ),
+                ),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     border: Border.all(
-                      color: Colors.red, // Set red color for the border
-                      width: 0.30, // Adjust border width
+                      color: Colors.red,
+                      width: 0.30,
                     ),
                   ),
-                  child: LikeButton(
-                    size: 50,
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: LikeButton(
+                      size: 40,
+                      likeCount: likeCount,
+                      bubblesSize: 200,
+                      circleSize: 100,
+                      isLiked: liked,
+                      onTap: (isLiked) {
+                        updateLikes();
+                        return Future.value(!isLiked);
+                      },
+                    ),
+                  ),
+                ),
+                const Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: Text(
+                    "If you Liked",
+                    style: TextStyle(color: Colors.purple, fontSize: 10),
                   ),
                 ),
               ],

@@ -3,8 +3,15 @@ import 'package:portfolio/responsive/desktop_layout.dart';
 import 'package:portfolio/responsive/Mobile/mobile_layout.dart';
 import 'package:portfolio/responsive/responsive.dart';
 import 'package:portfolio/responsive/tab_layout.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: "https://syfrrvdtmschpylufahr.supabase.co",
+    anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5ZnJydmR0bXNjaHB5bHVmYWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDEzNjk0MzYsImV4cCI6MjAxNjk0NTQzNn0.wsD8djMCBlgbImZoaaEtawAO2rKaLfAGVZPeg-DXfNA",
+  );
   runApp(const MyApp());
 }
 
