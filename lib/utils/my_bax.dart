@@ -79,25 +79,15 @@ class MyProjectBox extends StatelessWidget {
           ),
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
-              return Column(
-                children: [
-                  SizedBox(
-                    height: constraints.maxHeight * 0.7,
-                    child: Card(
-                      color: Colors.black,
-                      child: Image.asset(
-                        imgPath,
-                      ),
-                    ),
+              return SizedBox(
+                height: constraints.maxHeight * 0.7,
+                child: Card(
+                  color: Colors.black,
+                  child: Image.asset(
+                    imgPath,
+                    fit: BoxFit.fitHeight,
                   ),
-                  SizedBox(height: constraints.maxHeight * 0.01),
-                  Text(
-                    name,
-                    style: TextStyle(
-                        fontSize: constraints.maxHeight * 0.13,
-                        color: Colors.white),
-                  ),
-                ],
+                ),
               );
             },
           ),

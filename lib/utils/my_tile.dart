@@ -20,7 +20,8 @@ class MyTile extends StatelessWidget {
 class MyContactTile extends StatelessWidget {
   late String contact;
   late Icon contactIcon;
-  MyContactTile({Key? key, required this.contact,required this.contactIcon}) : super(key: key);
+  MyContactTile({Key? key, required this.contact, required this.contactIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +39,46 @@ class MyContactTile extends StatelessWidget {
               Text(
                 contact,
                 style: TextStyle(fontWeight: FontWeight.bold),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class MyWebContactTile extends StatelessWidget {
+  late String contact;
+  late Icon contactIcon;
+  MyWebContactTile({Key? key, required this.contact, required this.contactIcon})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        height: 50,
+        decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.purple, // Set the color of the border
+              width: 2, // Set the width of the border
+            ),
+            borderRadius: BorderRadius.circular(8),
+            color: Colors.black),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              contactIcon,
+              Padding(
+                padding: const EdgeInsets.only(left:8.0),
+                child: Text(
+                  contact,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.purple),
+                ),
               )
             ],
           ),

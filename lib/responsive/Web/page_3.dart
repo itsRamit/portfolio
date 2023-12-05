@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/utils/my_bax.dart';
 
-class Page3 extends StatelessWidget {
-  const Page3({super.key});
+class page_3 extends StatefulWidget {
+  const page_3({super.key});
 
+  @override
+  State<page_3> createState() => _page_3State();
+}
+
+class _page_3State extends State<page_3> {
   @override
   Widget build(BuildContext context) {
     var w = MediaQuery.of(context).size.width;
     var h = MediaQuery.of(context).size.height;
     return Container(
       width: w,
-      // height: h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +24,7 @@ class Page3 extends StatelessWidget {
             child: Text(
               "Projects",
               style: TextStyle(
-                  fontSize: w / 9,
+                  fontSize: w / 20,
                   color: Colors.purple,
                   fontWeight: FontWeight.w500),
             ),
@@ -30,15 +34,28 @@ class Page3 extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 4,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: 4,
             ),
             itemBuilder: (context, index) {
-              return MyProjectBox(
-                bgColor: Colors.purple,
-                imgPath: projects[index],
-                name: "Test",
+              return Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8),
+                child: MyProjectBox(
+                  bgColor: Colors.purple,
+                  imgPath: projects[index],
+                  name: "Test",
+                ),
               );
             },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Contact Me",
+              style: TextStyle(
+                  fontSize: w / 20,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.w500),
+            ),
           ),
         ],
       ),

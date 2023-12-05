@@ -8,27 +8,68 @@ var myAppBar = AppBar(
   title: Text(' '),
   centerTitle: false,
 );
+
+var myWebAppBar = AppBar(
+  backgroundColor: defaultBackgroundColor,
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          'R A M I T  D A S',
+          style: TextStyle(fontSize: 18.0, color: Colors.white),
+        ),
+      ),
+    ],
+  ),
+  actions: [
+    TextButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.home),
+        label: Text("Home", style: TextStyle(color: Colors.white))),
+    TextButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.person_2_outlined),
+        label: Text("About", style: TextStyle(color: Colors.white))),
+    TextButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.lightbulb_circle),
+        label: Text("Skills", style: TextStyle(color: Colors.white))),
+    TextButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.code),
+        label: Text("Projects", style: TextStyle(color: Colors.white))),
+    TextButton.icon(
+        onPressed: () {},
+        icon: Icon(Icons.phone_android_rounded),
+        label: Text("Contacts", style: TextStyle(color: Colors.white))),
+  ],
+  centerTitle: false,
+);
 var drawerTextColor = TextStyle(
-  color: Colors.black,
+  color: Colors.white,
 );
 var tilePadding = const EdgeInsets.only(left: 8.0, right: 8, top: 8);
 var myDrawer = Drawer(
-  backgroundColor: Colors.white,
-  elevation: 0,
+  backgroundColor: Colors.black87,
+  shadowColor: Colors.grey,
+  elevation: 2,
   child: Column(
     children: [
-      DrawerHeader(
+      const DrawerHeader(
         child: Icon(
           Icons.favorite,
           size: 64,
+          color: Colors.pink,
         ),
       ),
       Padding(
         padding: tilePadding,
         child: ListTile(
-          leading: Icon(Icons.home),
+          leading: Icon(Icons.download),
           title: Text(
-            'D A S H B O A R D',
+            'Resume',
             style: drawerTextColor,
           ),
         ),
@@ -38,7 +79,7 @@ var myDrawer = Drawer(
         child: ListTile(
           leading: Icon(Icons.settings),
           title: Text(
-            'S E T T I N G S',
+            'About',
             style: drawerTextColor,
           ),
         ),
@@ -48,7 +89,7 @@ var myDrawer = Drawer(
         child: ListTile(
           leading: Icon(Icons.info),
           title: Text(
-            'A B O U T',
+            'Skills',
             style: drawerTextColor,
           ),
         ),
@@ -58,7 +99,7 @@ var myDrawer = Drawer(
         child: ListTile(
           leading: Icon(Icons.logout),
           title: Text(
-            'L O G O U T',
+            'Projects',
             style: drawerTextColor,
           ),
         ),
@@ -108,9 +149,17 @@ List<String> others = [
 ];
 
 List<Color> othersColor = [Colors.yellowAccent, Colors.redAccent];
+
 List<String> othersName = [
   "Firebase",
   "Git",
+];
+
+List<String> projects = [
+  "assets/images/project_1.png",
+  "assets/images/project_2.png",
+  "assets/images/project_2.png",
+  "assets/images/project_2.png"
 ];
 List<String> contacts = [
   "ramitd677@gmail.com",
@@ -118,8 +167,11 @@ List<String> contacts = [
 ];
 
 const List contactsIcon = [
-  Icon(Icons.email),
-  Icon(Icons.phone),
+  Icon(
+    Icons.email,
+    color: Colors.purple,
+  ),
+  Icon(Icons.phone, color: Colors.purple),
 ];
 
 const List<FaIcon> contactsButtonIcons = [
@@ -150,4 +202,4 @@ const List<FaIcon> contactsButtonIcons = [
 ];
 
 var info =
-    "I'm Ramit Das, a sophomore pursuing degree in Electronics and Communication Engineering at IIIT Kalyani. Proficient in C, C++, and Flutter, I'm passionate about building cross-platform applications. Additionally, I have a knack for front-end web development, creating intuitive and responsive interfaces using HTML, CSS, and JavaScript.\nEager to solve real-world problems through technology, I actively work on projects and seek new opportunities to innovate. Let's connect and explore the possibilities!";
+    "Hi, I'm Ramit Das, a sophomore pursuing degree in Electronics and Communication Engineering at Indian Institute of Information Technology , Kalyani. Proficient in C, C++, and Flutter, I'm passionate about building cross-platform applications. Additionally, I have a knack for front-end web development, creating intuitive and responsive interfaces using HTML, CSS, and JavaScript.\nEager to solve real-world problems through technology, I actively work on projects and seek new opportunities to innovate. Let's connect and explore the possibilities!";
