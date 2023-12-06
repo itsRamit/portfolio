@@ -26,6 +26,9 @@ class _DesktopScaffoldState extends State<DesktopScaffold> {
           child: Column(
             children: [
               page_1(),
+              Divider(
+                color: Colors.purple,
+              ),
               page_2(),
               page_3(),
               footer(),

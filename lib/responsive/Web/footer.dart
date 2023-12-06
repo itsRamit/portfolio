@@ -18,7 +18,7 @@ class _footerState extends State<footer> {
     return Padding(
       padding: const EdgeInsets.only(top: 18.0),
       child: Container(
-        height: h / 3,
+        height: h / 4,
         width: w - 30,
         decoration: BoxDecoration(
           color: Colors.black,
@@ -61,8 +61,8 @@ class _footerState extends State<footer> {
             const VerticalDivider(
               endIndent: 20,
               indent: 20,
-              color: Colors.purple, // Set the color of the divider
-              thickness: 1, // Set the thickness of the divider line
+              color: Colors.purple,
+              thickness: 1,
             ),
             SizedBox(
               width: w / 2 - 31,
@@ -82,7 +82,7 @@ class _footerState extends State<footer> {
                   },
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
                       decoration: BoxDecoration(
@@ -112,21 +112,21 @@ class _footerState extends State<footer> {
                     ),
                     Row(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
-                          child: Text(
-                            "Drop a Heart",
-                            style: TextStyle(color: Colors.pink),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(right: 8.0),
+                        //   child: Text(
+                        //     "Drop a Heart",
+                        //     style: TextStyle(color: Colors.pink),
+                        //   ),
+                        // ),
                         SizedBox(width: w / 15, child: like_button()),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0),
-                          child: Text(
-                            "If you liked",
-                            style: TextStyle(color: Colors.pink),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 8.0),
+                        //   child: Text(
+                        //     "If you liked",
+                        //     style: TextStyle(color: Colors.pink),
+                        //   ),
+                        // ),
                       ],
                     )
                   ],

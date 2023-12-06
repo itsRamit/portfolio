@@ -1,4 +1,6 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/constants.dart';
 import 'package:portfolio/responsive/Animated.dart';
 
 class page_1 extends StatefulWidget {
@@ -15,7 +17,7 @@ class _page_1State extends State<page_1> {
     var h = MediaQuery.of(context).size.height;
     return Container(
       height: h,
-      color: Colors.black,
+      color: defaultBackgroundColor,
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,7 +25,7 @@ class _page_1State extends State<page_1> {
           children: [
             SizedBox(
               height: h / 2,
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
@@ -33,14 +35,39 @@ class _page_1State extends State<page_1> {
                     children: [
                       Text(
                         "Hi, I'm ",
-                        style: TextStyle(fontSize: 90, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: 90,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
                       ),
-                      Text("RAMIT DAS",
-                          style: TextStyle(fontSize: 90, color: Colors.purple)),
+                      // Text("RAMIT DAS",
+                      //     style: TextStyle(
+                      //         fontSize: 90,
+                      //         color: Colors.purple,
+                      //         fontWeight: FontWeight.bold)),
+                      AnimatedTextKit(
+                        totalRepeatCount: 1,
+                        animatedTexts: [
+                          TyperAnimatedText("RAMIT DAS",
+                              textStyle: TextStyle(
+                                  fontSize: 90,
+                                  color: Colors.purple,
+                                  fontWeight: FontWeight.bold),
+                              speed: Duration(milliseconds: 150)),
+                        ],
+                      ),
                     ],
                   ),
-                  Text("App and Web Developer",
-                      style: TextStyle(fontSize: 40, color: Colors.white)),
+                  AnimatedTextKit(
+                    repeatForever: true,
+                    animatedTexts: [
+                     FadeAnimatedText('App Developer',textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500) ),
+                      FadeAnimatedText('Web Developer',textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500)),
+                      FadeAnimatedText("Programmer",textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500)),
+                    ],
+                  ),
+                  // Text("App and Web Developer",
+                  //     style: TextStyle(fontSize: 40, color: Colors.white)),
                 ],
               ),
             ),
@@ -53,3 +80,6 @@ class _page_1State extends State<page_1> {
     );
   }
 }
+
+
+

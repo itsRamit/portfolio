@@ -38,6 +38,8 @@ dependencies:
   like_button: ^2.0.5
   flutter_slidable: ^3.0.1
   supabase_flutter: ^1.10.25
+  animated_text_kit: ^4.2.2
+  google_fonts: ^6.1.0
 
 dev_dependencies:
   flutter_test:
