@@ -1,26 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/constants/constants.dart';
-
-class MyTile extends StatelessWidget {
-  const MyTile({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        height: 50,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8), color: Colors.grey[200]),
-      ),
-    );
-  }
-}
 
 class MyContactTile extends StatelessWidget {
   late String contact;
-  late Icon contactIcon;
-  MyContactTile({Key? key, required this.contact, required this.contactIcon})
+  late IconData contactIcon;
+  late Color iconColor;
+  MyContactTile(
+      {Key? key,
+      required this.contact,
+      required this.contactIcon,
+      this.iconColor = Colors.black})
       : super(key: key);
 
   @override
@@ -35,7 +23,10 @@ class MyContactTile extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              contactIcon,
+              Icon(
+                contactIcon,
+                color: iconColor,
+              ),
               Text(
                 contact,
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -50,16 +41,18 @@ class MyContactTile extends StatelessWidget {
 
 class MyWebContactTile extends StatelessWidget {
   late String contact;
-  late Icon contactIcon;
+  late IconData contactIcon;
   MyWebContactTile({Key? key, required this.contact, required this.contactIcon})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var w = MediaQuery.of(context).size.width;
+    var h = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        height: 50,
+        height: h / 15,
         decoration: BoxDecoration(
             border: Border.all(
               color: Colors.purple, // Set the color of the border
@@ -71,9 +64,12 @@ class MyWebContactTile extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              contactIcon,
+              Icon(
+                contactIcon,
+                color: Colors.purple,
+              ),
               Padding(
-                padding: const EdgeInsets.only(left:8.0),
+                padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
                   contact,
                   style: TextStyle(

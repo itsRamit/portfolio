@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../constants/constants.dart';
 
 class MySkillBox extends StatefulWidget {
   late String imgPath;
@@ -72,6 +75,7 @@ class _MySkillBoxState extends State<MySkillBox> {
 class MyProjectBox extends StatefulWidget {
   late String imgPath;
   late String name;
+  late String url;
   late Color bgColor;
   late Color onChangeColor;
   bool hober = false;
@@ -79,6 +83,7 @@ class MyProjectBox extends StatefulWidget {
       {required this.bgColor,
       required this.name,
       required this.imgPath,
+      required this.url,
       this.onChangeColor = Colors.pink});
 
   @override
@@ -89,7 +94,9 @@ class _MyProjectBoxState extends State<MyProjectBox> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+         launchUrl(Uri.parse(widget.url));
+      },
       onHover: (hober) {
         setState(() {
           widget.hober = hober;
@@ -132,17 +139,3 @@ class _MyProjectBoxState extends State<MyProjectBox> {
   }
 }
 
-class MyBox extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Colors.grey[400],
-        ),
-      ),
-    );
-  }
-}

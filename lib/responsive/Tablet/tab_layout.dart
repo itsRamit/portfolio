@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/responsive/Mobile/footer.dart';
-import 'package:portfolio/responsive/Mobile/page1.dart';
-import 'package:portfolio/responsive/Mobile/page2.dart';
-import 'package:portfolio/responsive/Mobile/page3.dart';
+import 'package:portfolio/responsive/Tablet/footer.dart';
+import 'package:portfolio/responsive/Tablet/page1.dart';
+import 'package:portfolio/responsive/Tablet/page2.dart';
+import 'package:portfolio/responsive/Tablet/page3.dart';
+import 'package:portfolio/responsive/Web/components/createdUsingFlutter.dart';
 import 'package:portfolio/responsive/components/scroll_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class MobileScaffold extends StatelessWidget {
+class TabScaffold extends StatelessWidget {
   ScrollController _scrollController = ScrollController();
-  MobileScaffold({Key? key}) : super(key: key);
+  TabScaffold({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,7 @@ class MobileScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: defaultBackgroundColor,
       appBar: myAppBar,
-      // ========= Drawer =============
       drawer: Drawer(
-        width: w - w / 4,
         backgroundColor: Colors.black87,
         shadowColor: Colors.grey,
         elevation: 2,
@@ -36,9 +34,7 @@ class MobileScaffold extends StatelessWidget {
             Padding(
               padding: tilePadding,
               child: InkWell(
-                onTap: () {
-                  launchUrl(Uri.parse(url[0]));
-                },
+                onTap: () {},
                 child: ListTile(
                   leading: Icon(Icons.download),
                   title: Text(
@@ -67,7 +63,7 @@ class MobileScaffold extends StatelessWidget {
               padding: tilePadding,
               child: InkWell(
                 onTap: () {
-                  Scroll(h - h / 8, _scrollController);
+                  Scroll(h, _scrollController);
                 },
                 child: ListTile(
                   leading: Icon(Icons.person_2_rounded),
@@ -82,7 +78,7 @@ class MobileScaffold extends StatelessWidget {
               padding: tilePadding,
               child: InkWell(
                 onTap: () {
-                  Scroll(1.3 * h, _scrollController);
+                  Scroll(1.6 * h, _scrollController);
                 },
                 child: ListTile(
                   leading: Icon(Icons.lightbulb_circle),
@@ -122,31 +118,31 @@ class MobileScaffold extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
-        child: const Padding(
-          padding: EdgeInsets.all(18.0),
+        child: Padding(
+          padding: const EdgeInsets.all(18.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               //============= Page 1 ===========================
               Page1(),
-              //============= Page 2 ========================
+              //================ Page 2 ========================
               Page2(),
-              //============= Page 3 ==========================
+              //============== Page 3 ==========================
               Padding(
-                padding: EdgeInsets.only(top: 18.0),
+                padding: EdgeInsets.only(top: w / 30),
                 child: Page3(),
               ),
-              //============= Page 4 (Footer) ===================
+              //================= Page 4(Footer) ===================
               Padding(
-                padding: EdgeInsets.only(top: 18.0),
+                padding: EdgeInsets.only(top: w / 30),
                 child: footer(),
-              )
+              ),
             ],
           ),
         ),

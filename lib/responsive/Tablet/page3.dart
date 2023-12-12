@@ -11,8 +11,8 @@ class Page3 extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     return Container(
       width: w,
-      // height: h,
       child: Column(
+        //============== Project =====================
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
@@ -20,7 +20,7 @@ class Page3 extends StatelessWidget {
             child: Text(
               "Projects",
               style: TextStyle(
-                  fontSize: w / 15,
+                  fontSize: w / 20,
                   color: Colors.purple,
                   fontWeight: FontWeight.w500),
             ),
@@ -34,7 +34,7 @@ class Page3 extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               return MyProjectBox(
-                url:projectUrl[index],
+                url: projectUrl[index],
                 bgColor: Colors.purple,
                 imgPath: projects[index],
                 name: "Test",

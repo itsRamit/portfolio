@@ -3,7 +3,8 @@ import 'package:like_button/like_button.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class like_button extends StatefulWidget {
-  const like_button({super.key});
+  bool hoberLikeButton = false;
+  like_button({super.key});
 
   @override
   State<like_button> createState() => _like_buttonState();
@@ -64,34 +65,65 @@ class _like_buttonState extends State<like_button> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        gradient: const LinearGradient(colors: [
-          Colors.pinkAccent,
-          Colors.blue,
-        ]),
-      ),
+    return InkWell(
+      onTap: (){},
+      onHover: (hober) {
+        setState(() {
+          widget.hoberLikeButton = hober;
+        });
+      },
       child: Container(
-        margin: EdgeInsets.all(2),
-        alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 5.0, bottom: 5, right: 3),
-            child: LikeButton(
-              size: 34,
-              likeCount: likeCount,
-              bubblesSize: 100,
-              circleSize: 100,
-              isLiked: liked,
-              onTap: (isLiked) {
-                updateLikes();
-                return Future.value(!isLiked);
-              },
+            borderRadius: BorderRadius.circular(10),
+            gradient: const LinearGradient(colors: [
+              Colors.pinkAccent,
+              Colors.blue,
+            ]),
+            boxShadow: [
+              widget.hoberLikeButton
+                  ? const BoxShadow(
+                      color: Colors.pink,
+                      offset: Offset(-2, 0),
+                      blurRadius: 20,
+                    )
+                  : const BoxShadow(
+                      color: Colors.transparent,
+                      offset: Offset(0, 0),
+                      blurRadius: 0,
+                    ),
+              widget.hoberLikeButton
+                  ? const BoxShadow(
+                      color: Colors.blue,
+                      offset: Offset(2, 0),
+                      blurRadius: 20,
+                    )
+                  : const BoxShadow(
+                      color: Colors.transparent,
+                      offset: Offset(0, 0),
+                      blurRadius: 0,
+                    )
+            ]),
+        child: Container(
+          margin: EdgeInsets.all(2),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.black,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 5.0, bottom: 5, right: 3),
+              child: LikeButton(
+                size: 34,
+                likeCount: likeCount,
+                bubblesSize: 100,
+                circleSize: 100,
+                isLiked: liked,
+                onTap: (isLiked) {
+                  updateLikes();
+                  return Future.value(!isLiked);
+                },
+              ),
             ),
           ),
         ),

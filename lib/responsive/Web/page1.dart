@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/responsive/Animated.dart';
+import 'package:portfolio/responsive/components/Animated.dart';
 
 class page_1 extends StatefulWidget {
   const page_1({super.key});
@@ -36,7 +36,7 @@ class _page_1State extends State<page_1> {
                       Text(
                         "Hi, I'm ",
                         style: TextStyle(
-                            fontSize: 90,
+                            fontSize: w / 18,
                             color: Colors.white,
                             fontWeight: FontWeight.bold),
                       ),
@@ -50,7 +50,7 @@ class _page_1State extends State<page_1> {
                         animatedTexts: [
                           TyperAnimatedText("RAMIT DAS",
                               textStyle: TextStyle(
-                                  fontSize: 90,
+                                  fontSize: w / 18,
                                   color: Colors.purple,
                                   fontWeight: FontWeight.bold),
                               speed: Duration(milliseconds: 150)),
@@ -61,9 +61,18 @@ class _page_1State extends State<page_1> {
                   AnimatedTextKit(
                     repeatForever: true,
                     animatedTexts: [
-                     FadeAnimatedText('App Developer',textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500) ),
-                      FadeAnimatedText('Web Developer',textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500)),
-                      FadeAnimatedText("Programmer",textStyle:TextStyle(fontSize: 40, color: Colors.purple),duration:Duration(milliseconds:1500)),
+                      FadeAnimatedText('App Developer',
+                          textStyle:
+                              TextStyle(fontSize: 40, color: Colors.purple),
+                          duration: Duration(milliseconds: 1500)),
+                      FadeAnimatedText('Web Developer',
+                          textStyle:
+                              TextStyle(fontSize: 40, color: Colors.purple),
+                          duration: Duration(milliseconds: 1500)),
+                      FadeAnimatedText("Programmer",
+                          textStyle:
+                              TextStyle(fontSize: 40, color: Colors.purple),
+                          duration: Duration(milliseconds: 1500)),
                     ],
                   ),
                   // Text("App and Web Developer",
@@ -71,7 +80,7 @@ class _page_1State extends State<page_1> {
                 ],
               ),
             ),
-            const SizedBox(
+            SizedBox(
               child: AnimatedImageContainer(),
             )
           ],
@@ -80,6 +89,3 @@ class _page_1State extends State<page_1> {
     );
   }
 }
-
-
-

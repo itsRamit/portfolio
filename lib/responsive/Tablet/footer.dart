@@ -22,15 +22,15 @@ class _footerState extends State<footer> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ================ Contacts ========================
+            //========== Contact ==================
             Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: label(
-                    text: "Contact Me",
-                    size: w / 15,
-                    color: Colors.purple,
-                    fontWeight: FontWeight.w500)),
-
+              padding: const EdgeInsets.all(8.0),
+              child: label(
+                  text: "Contact Me",
+                  size: w / 20,
+                  color: Colors.purple,
+                  fontWeight: FontWeight.w500),
+            ),
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -40,7 +40,7 @@ class _footerState extends State<footer> {
                     contact: contacts[index], contactIcon: contactsIcon[index]);
               },
             ),
-            // ================ Socials icons ======================
+            //========== Contact Icons ==================
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -59,27 +59,28 @@ class _footerState extends State<footer> {
               thickness: 1,
               indent: 20,
               endIndent: 20,
-              color: Colors.purple,
             ),
-            // =============== Like Button part ======================
+            //========== Like Button ==================
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: label(
-                      text: "✦ Drop A Heart",
-                      size: w / 40,
-                      color: Colors.purple,
-                    )),
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: label(
+                    text: "✦ Drop A Heart",
+                    color: Colors.purple,
+                    size: w / 60,
+                  ),
+                ),
                 like_button(),
                 Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: label(
-                      text: "If You Liked ✦",
-                      size: w / 40,
-                      color: Colors.purple,
-                    )),
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: label(
+                    text: "If you Liked ✦",
+                    color: Colors.purple,
+                    size: w / 60,
+                  ),
+                ),
               ],
             )
           ],

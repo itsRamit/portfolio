@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AnimatedImageContainer extends StatefulWidget {
-  const AnimatedImageContainer({Key? key, this.height = 400, this.width = 400})
+  late double? width;
+  late double? height;
+  AnimatedImageContainer({Key? key, this.height = 400, this.width = 400})
       : super(key: key);
-  final double? width;
-  final double? height;
+
   @override
   AnimatedImageContainerState createState() => AnimatedImageContainerState();
 }
@@ -70,7 +71,7 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
               child: ClipOval(
                 // ClipOval clips its child into an oval shape (circle in this case)
                 child: Image.asset(
-                  "assets/images/flutter.png",
+                  "assets/images/logo.png",
                   width: 400, // Set width and height to create a circular image
                   height: 400,
                   fit:

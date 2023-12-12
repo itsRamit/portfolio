@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
+import 'package:portfolio/responsive/Web/components/customContainer.dart';
+import 'package:portfolio/responsive/components/skills.dart';
 import 'package:portfolio/utils/my_bax.dart';
+
+import '../../utils/labels.dart';
 
 class page_2 extends StatefulWidget {
   bool hoberSchool = false;
@@ -21,8 +25,8 @@ class _page_2State extends State<page_2> {
       width: w,
       color: defaultBackgroundColor,
       child: Row(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // ==================== Avatar ==========================
           Container(
             width: w / 2.1,
             child: FittedBox(
@@ -36,18 +40,18 @@ class _page_2State extends State<page_2> {
               ),
             ),
           ),
+          //======================== About me ========================
           SizedBox(
             width: w / 2,
             child: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "About Me",
-                    style: TextStyle(
-                        fontSize: w / 20,
-                        color: Colors.purple,
-                        fontWeight: FontWeight.w500),
+                  child: label(
+                    text: "About Me",
+                    size: w / 25,
+                    color: Colors.purple,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 InkWell(
@@ -64,8 +68,8 @@ class _page_2State extends State<page_2> {
                       boxShadow: [
                         BoxShadow(
                           color: !widget.hoberAboutMe
-                                        ? Colors.purple.withOpacity(0.5)
-                                        : Colors.pink.withOpacity(0.5),
+                              ? Colors.purple.withOpacity(0.5)
+                              : Colors.pink.withOpacity(0.5),
                           spreadRadius: 10,
                           blurRadius: 10,
                           offset: Offset(0, 0),
@@ -80,13 +84,14 @@ class _page_2State extends State<page_2> {
                         style: TextStyle(
                           fontSize: w / 70,
                           color: !widget.hoberAboutMe
-                                        ? Colors.purple
-                                        : Colors.pink,
+                              ? Colors.purple
+                              : Colors.pink,
                         ),
                       ),
                     ),
                   ),
                 ),
+                //==================== Skills ===========================
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -97,97 +102,14 @@ class _page_2State extends State<page_2> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Skills",
-                              style: TextStyle(
-                                  fontSize: w / 25,
-                                  color: Colors.purple,
-                                  fontWeight: FontWeight.w500),
+                            child: label(
+                              text: "Skills",
+                              size: w / 30,
+                              color: Colors.purple,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "✦ Programming Languages",
-                                // textAlign: TextAlign.justify,
-                                style: TextStyle(
-                                  fontSize: w / 70,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              GridView.builder(
-                                shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
-                                itemCount: 4,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                ),
-                                itemBuilder: (context, index) {
-                                  return MySkillBox(
-                                    imgPath: ProgrammingLanguage[index],
-                                    bgColor: ProgrammingLanguageColor[index],
-                                    name: ProgrammingLanguageName[index],
-                                  );
-                                },
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10.0),
-                                child: Text(
-                                  "✦ Framework",
-                                  // textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontSize: w / 70,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              GridView.builder(
-                                shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
-                                itemCount: 3,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                ),
-                                itemBuilder: (context, index) {
-                                  return MySkillBox(
-                                    imgPath: Frameworks[index],
-                                    bgColor: FrameworksColor[index],
-                                    name: FrameworksName[index],
-                                  );
-                                },
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10.0),
-                                child: Text(
-                                  "✦ Other",
-                                  // textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontSize: w / 70,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                              GridView.builder(
-                                shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
-                                itemCount: 2,
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4,
-                                ),
-                                itemBuilder: (context, index) {
-                                  return MySkillBox(
-                                    imgPath: others[index],
-                                    bgColor: othersColor[index],
-                                    name: othersName[index],
-                                  );
-                                },
-                              ),
-                            ],
-                          )
+                          skills(count: 4, labelSize: w / 70)
                         ],
                       ),
                     ),
@@ -199,25 +121,20 @@ class _page_2State extends State<page_2> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              "Education",
-                              style: TextStyle(
-                                  fontSize: w / 25,
-                                  color: Colors.purple,
-                                  fontWeight: FontWeight.w500),
+                            child: label(
+                              text: "Education",
+                              size: w / 30,
+                              color: Colors.purple,
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: Text(
-                              "✦ College",
-                              // textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontSize: w / 70,
+                              padding: const EdgeInsets.only(bottom: 10),
+                              child: label(
+                                text: "✦ College",
+                                size: w / 70,
                                 color: Colors.white,
-                              ),
-                            ),
-                          ),
+                              )),
                           InkWell(
                             onTap: () {},
                             onHover: (Hober) {
@@ -225,45 +142,18 @@ class _page_2State extends State<page_2> {
                                 widget.hoberCollege = Hober;
                               });
                             },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: !widget.hoberCollege
-                                        ? Colors.purple.withOpacity(0.5)
-                                        : Colors.pink.withOpacity(0.5),
-                                    spreadRadius: 10,
-                                    blurRadius: 10,
-                                    offset: Offset(0, 0),
-                                  ),
-                                ],
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: Text(
-                                  "Indian Institute of Information Technology, Kalyani\n2022 - 2026",
-                                  // textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontSize: w / 80,
-                                    color: !widget.hoberCollege
-                                        ? Colors.purple
-                                        : Colors.pink,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            child: customeContainer(
+                                hober: widget.hoberCollege,
+                                fontSize: w / 80,
+                                text:
+                                    "Indian Institute of Information Technology, Kalyani\n2022 - 2026"),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(bottom: 10, top: 10),
-                            child: Text(
-                              "✦ School",
-                              // textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontSize: w / 70,
-                                color: Colors.white,
-                              ),
+                            child: label(
+                              text: "✦ School",
+                              size: w / 70,
+                              color: Colors.white,
                             ),
                           ),
                           InkWell(
@@ -273,36 +163,11 @@ class _page_2State extends State<page_2> {
                                 widget.hoberSchool = Hober;
                               });
                             },
-                            child: Container(
-                              width: w / 4.4,
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: !widget.hoberSchool
-                                        ? Colors.purple.withOpacity(0.5)
-                                        : Colors.pink.withOpacity(0.5),
-                                    spreadRadius: 10,
-                                    blurRadius: 10,
-                                    offset: Offset(0, 0),
-                                  ),
-                                ],
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(18.0),
-                                child: Text(
-                                  "Kendriya Vidyalaya Sangathan, Kishanganj\n2010 - 2021",
-                                  // textAlign: TextAlign.justify,
-                                  style: TextStyle(
-                                    fontSize: w / 80,
-                                    color: !widget.hoberSchool
-                                        ? Colors.purple
-                                        : Colors.pink,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            child: customeContainer(
+                                hober: widget.hoberSchool,
+                                fontSize: w / 80,
+                                text:
+                                    "Kendriya Vidyalaya Sangathan, Kishanganj\n2010 - 2021"),
                           ),
                         ],
                       ),

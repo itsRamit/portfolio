@@ -12,7 +12,7 @@ var myAppBar = AppBar(
 
 var myWebAppBar = AppBar(
   backgroundColor: defaultBackgroundColor,
-  title: Row(
+  title: const Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Padding(
@@ -24,90 +24,15 @@ var myWebAppBar = AppBar(
       ),
     ],
   ),
-  actions: [
-    TextButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.home),
-        label: Text("Home", style: TextStyle(color: Colors.white))),
-    TextButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.person_2_outlined),
-        label: Text("About", style: TextStyle(color: Colors.white))),
-    TextButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.lightbulb_circle),
-        label: Text("Skills", style: TextStyle(color: Colors.white))),
-    TextButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.code),
-        label: Text("Projects", style: TextStyle(color: Colors.white))),
-    TextButton.icon(
-        onPressed: () {},
-        icon: Icon(Icons.phone_android_rounded),
-        label: Text("Contacts", style: TextStyle(color: Colors.white))),
-  ],
+  actions: [],
   centerTitle: false,
 );
+
 var drawerTextColor = TextStyle(
   color: Colors.white,
 );
+
 var tilePadding = const EdgeInsets.only(left: 8.0, right: 8, top: 8);
-var myDrawer = Drawer(
-  backgroundColor: Colors.black87,
-  shadowColor: Colors.grey,
-  elevation: 2,
-  child: Column(
-    children: [
-      const DrawerHeader(
-        child: Icon(
-          Icons.favorite,
-          size: 64,
-          color: Colors.pink,
-        ),
-      ),
-      Padding(
-        padding: tilePadding,
-        child: ListTile(
-          leading: Icon(Icons.download),
-          title: Text(
-            'Resume',
-            style: drawerTextColor,
-          ),
-        ),
-      ),
-      Padding(
-        padding: tilePadding,
-        child: ListTile(
-          leading: Icon(Icons.settings),
-          title: Text(
-            'About',
-            style: drawerTextColor,
-          ),
-        ),
-      ),
-      Padding(
-        padding: tilePadding,
-        child: ListTile(
-          leading: Icon(Icons.info),
-          title: Text(
-            'Skills',
-            style: drawerTextColor,
-          ),
-        ),
-      ),
-      Padding(
-        padding: tilePadding,
-        child: ListTile(
-          leading: Icon(Icons.logout),
-          title: Text(
-            'Projects',
-            style: drawerTextColor,
-          ),
-        ),
-      ),
-    ],
-  ),
-);
 
 const List<String> ProgrammingLanguage = [
   "assets/images/c.png",
@@ -159,37 +84,40 @@ List<String> othersName = [
 List<String> projects = [
   "assets/images/project_1.png",
   "assets/images/project_2.png",
-  "assets/images/project_2.png",
-  "assets/images/project_2.png"
+  "assets/images/project_3.png",
+  "assets/images/project_4.png"
+];
+List<String> projectUrl = [
+  "https://github.com/itsRamit/Todo_App",
+  "https://github.com/itsRamit/Food_Recipe_App",
+  "https://github.com/itsRamit/portfolio",
+  "https://github.com/itsRamit/Chating_App_UI"
 ];
 List<String> contacts = [
-  "ramitd677@gmail.com",
-  "+91 6295261395",
+  " ramitd677@gmail.com",
+  " +91 6295261395",
 ];
 
 const List contactsIcon = [
-  Icon(
-    Icons.email,
-    color: Colors.purple,
-  ),
-  Icon(Icons.phone, color: Colors.purple),
+  Icons.email,
+  Icons.phone,
 ];
 
 const List<FaIcon> contactsButtonIcons = [
-  FaIcon(
-    FontAwesomeIcons.instagram,
-    color: Colors.purple,
-  ),
-  FaIcon(
-    FontAwesomeIcons.facebook,
-    color: Colors.purple,
-  ),
   FaIcon(
     FontAwesomeIcons.linkedin,
     color: Colors.purple,
   ),
   FaIcon(
     FontAwesomeIcons.twitter,
+    color: Colors.purple,
+  ),
+  FaIcon(
+    FontAwesomeIcons.instagram,
+    color: Colors.purple,
+  ),
+  FaIcon(
+    FontAwesomeIcons.facebook,
     color: Colors.purple,
   ),
   FaIcon(
@@ -201,6 +129,25 @@ const List<FaIcon> contactsButtonIcons = [
     color: Colors.purple,
   )
 ];
+const List<IconData> contactsWebButtonIcons = [
+  FontAwesomeIcons.linkedin,
+  FontAwesomeIcons.twitter,
+  FontAwesomeIcons.instagram,
+  FontAwesomeIcons.facebook,
+  FontAwesomeIcons.github,
+  FontAwesomeIcons.medium,
+];
+
+List<String> url = [
+  "https://drive.google.com/file/d/10EhhcY1lSCQ-1hWlFzc8m6zmhLubXKWL/view?usp=sharing",
+  "www.linkedin.com/in/ramitd6",
+  "https://twitter.com/Ramit_d6",
+  "https://www.instagram.com/d_ramit/",
+  "https://www.facebook.com/profile.php?id=100089813780675&mibextid=ZbWKwL",
+  "https://github.com/itsRamit",
+  "https://medium.com/@ramitd677"
+];
+
 
 var info =
     "Hi, I'm Ramit Das, a sophomore pursuing degree in Electronics and Communication Engineering at Indian Institute of Information Technology , Kalyani. Proficient in C, C++, and Flutter, I'm passionate about building cross-platform applications. Additionally, I have a knack for front-end web development, creating intuitive and responsive interfaces using HTML, CSS, and JavaScript.\nEager to solve real-world problems through technology, I actively work on projects and seek new opportunities to innovate. Let's connect and explore the possibilities!";
