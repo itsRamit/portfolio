@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/constants.dart';
-import 'package:portfolio/responsive/Web/components/createdUsingFlutter.dart';
+import 'package:portfolio/responsive/components/createdUsingFlutter.dart';
 import 'package:portfolio/responsive/components/scroll_model.dart';
 import 'package:portfolio/responsive/web/footer.dart';
 import 'package:portfolio/responsive/Web/page1.dart';

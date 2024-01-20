@@ -91,7 +91,7 @@ class _footerState extends State<footer> {
                       },
                       child: IconButton(
                           onPressed: () {
-                            launchUrl(Uri.parse(url[index+1]));
+                            launchUrl(Uri.parse(url[index + 1]));
                           },
                           iconSize: h / 25,
                           icon: FaIcon(
@@ -153,7 +153,9 @@ class _footerState extends State<footer> {
                                   widget.hoberResume = hober;
                                 });
                               },
-                              onPressed: () {},
+                              onPressed: () {
+                                launchUrl(Uri.parse(url[0]));
+                              },
                               child: Text("Download Resume"),
                             ),
                           ),

@@ -4,7 +4,7 @@ import 'package:portfolio/responsive/Tablet/footer.dart';
 import 'package:portfolio/responsive/Tablet/page1.dart';
 import 'package:portfolio/responsive/Tablet/page2.dart';
 import 'package:portfolio/responsive/Tablet/page3.dart';
-import 'package:portfolio/responsive/Web/components/createdUsingFlutter.dart';
+import 'package:portfolio/responsive/components/createdUsingFlutter.dart';
 import 'package:portfolio/responsive/components/scroll_model.dart';
 
 class TabScaffold extends StatelessWidget {

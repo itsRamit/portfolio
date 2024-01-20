@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/responsive/components/createdUsingFlutter.dart';
 
 var defaultBackgroundColor = Colors.black;
 var appBarColor = Colors.black;
 var myAppBar = AppBar(
   backgroundColor: appBarColor,
-  title: Text(' '),
-  centerTitle: false,
+  actions: [
+    Padding(
+      padding: const EdgeInsets.only(right: 8.0),
+      child: createdUsingFlutter(),
+    )
+  ],
+  // centerTitle: false,
 );
 
 var drawerTextColor = TextStyle(
@@ -121,7 +127,7 @@ const List<IconData> contactsWebButtonIcons = [
 ];
 
 List<String> url = [
-  "https://drive.google.com/drive/folders/1OHhHKBv12uEZR8EO26aIafHsW3t3BpWD?usp=sharing",
+  "https://drive.google.com/drive/folders/1OHhHKBv12uEZR8EO26aIafHsW3t3BpWD",
   "www.linkedin.com/in/ramitd6",
   "https://twitter.com/Ramit_d6",
   "https://www.instagram.com/d_ramit/",
@@ -129,7 +135,6 @@ List<String> url = [
   "https://github.com/itsRamit",
   "https://medium.com/@ramitd677"
 ];
-
 
 var info =
     "Hi, I'm Ramit Das, a sophomore pursuing degree in Electronics and Communication Engineering at Indian Institute of Information Technology , Kalyani. Proficient in C, C++, and Flutter, I'm passionate about building cross-platform applications. Additionally, I have a knack for front-end web development, creating intuitive and responsive interfaces using HTML, CSS, and JavaScript.\nEager to solve real-world problems through technology, I actively work on projects and seek new opportunities to innovate. Let's connect and explore the possibilities!";

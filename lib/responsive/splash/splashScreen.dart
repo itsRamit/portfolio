@@ -40,8 +40,8 @@ class _SplashViewState extends State<SplashView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AnimatedImageContainer(
-              width: 100,
-              height: 100,
+              width: MediaQuery.of(context).size.width <= 650 ? 100 : 300,
+              height: MediaQuery.of(context).size.width <= 650 ? 100 : 300,
             ),
             SizedBox(
               height: 60,

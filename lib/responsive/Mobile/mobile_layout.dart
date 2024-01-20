@@ -17,12 +17,7 @@ class MobileScaffold extends StatelessWidget {
     var h = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: defaultBackgroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.home_max_outlined))
-        ],
-      ),
+      appBar: myAppBar,
       // ========= Drawer =============
       drawer: Drawer(
         width: w - w / 4,
